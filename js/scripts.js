@@ -12,6 +12,7 @@ $(document).ready(function(){
 
 function cipher(string) {
   console.log("ciphering " + string);
+  pasteOn()
   halfIndexLetter()
 
 };
@@ -28,6 +29,7 @@ function firstLast() {
   var firstLetter = copySentence[0].toUpperCase();
   var lastLetter = copySentence[copySentence.length-1].toUpperCase();
   copySentence = (firstLetter+lastLetter)
+  console.log("got first last: " + copySentence)
   return copySentence
 }
 
@@ -45,13 +47,14 @@ function reverseOrder() {
 function pasteOn() {
   var addendum = reverseOrder(firstLast());
   copySentence = (userSentence + addendum);
+  console.log("ended with " + copySentence)
   return copySentence
 }
 
 function halfIndexLetter() {
   var halfSentenceIndex = Math.floor(userSentence.length/2);
   var indexLetter = userSentence[halfSentenceIndex]
-  copySentence = (indexLetter + userSentence)
+  copySentence = (indexLetter + copySentence)
   console.log(copySentence)
   return copySentence
 }
